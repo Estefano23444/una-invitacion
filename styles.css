@@ -882,16 +882,21 @@ footer {
 
 .cal-mini-stage .rotor {
   position: relative;
-  width: 65%;
-  animation: vinyl-spin 26s linear infinite;
-  transform-origin: 50% 50%;
-  z-index: 1;
+  width: 78%;
+  z-index: 2;
 }
-.cal-mini-stage .rotor.boost { animation-duration: 1.6s; }
 .cal-mini-stage .rotor .mj-svg {
   display: block;
   width: 100%;
   filter: drop-shadow(0 12px 24px rgba(212,175,55,.4)) drop-shadow(0 0 16px rgba(184,94,255,.3));
+}
+.cal-mini-stage .rotor.has-image .mj-svg { display: none; }
+.cal-mini-stage .rotor .hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 32px rgba(0,0,0,.55)) drop-shadow(0 0 24px rgba(184,94,255,.25)) drop-shadow(0 0 14px rgba(212,175,55,.3));
+  animation: float 5s ease-in-out infinite;
 }
 
 .cal-hero-text { max-width: 640px; }
@@ -901,10 +906,11 @@ footer {
   font-weight: 800;
   font-style: italic;
   font-size: clamp(36px, 5.5vw, 70px);
-  line-height: .98;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   margin-bottom: 22px;
 }
+.cal-title .line { padding-top: 0.06em; }
 .cal-title em {
   background: linear-gradient(135deg, var(--accent) 5%, #ffe27a 45%, var(--accent-2) 95%);
   -webkit-background-clip: text;
@@ -1029,33 +1035,99 @@ footer {
 }
 .cinema-tab.active .tab-sub { color: var(--accent); opacity: .9; }
 
-/* ---- grid of day cards ---- */
+/* ---- day chips (filtro de días, estética MJ) ---- */
+.day-chips {
+  display: inline-flex;
+  gap: 4px;
+  background: rgba(20, 14, 35, .9);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 7px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  margin-top: 4px;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  align-self: flex-start;
+}
+.day-chips::-webkit-scrollbar { display: none; }
+.day-chips { scrollbar-width: none; }
+
+.day-chip {
+  flex: 0 0 auto;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  padding: 9px 16px 11px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 68px;
+  scroll-snap-align: center;
+  transition: background .25s, color .25s, border-color .25s, box-shadow .25s, transform .15s;
+}
+.day-chip:hover { color: var(--text); background: rgba(255,255,255,.04); }
+.day-chip.active {
+  background: linear-gradient(135deg, rgba(212,175,55,.18), rgba(184,94,255,.22));
+  color: var(--text);
+  border-color: rgba(212,175,55,.55);
+  box-shadow: 0 0 0 1px rgba(212,175,55,.35) inset, 0 6px 22px rgba(184,94,255,.22);
+}
+.day-chip.is-empty { opacity: .35; }
+
+.day-chip .chip-dow {
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: .8;
+}
+.day-chip.active .chip-dow { color: var(--accent); opacity: 1; }
+.day-chip .chip-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1;
+}
+.day-chip.active .chip-num {
+  background: linear-gradient(135deg, var(--accent), #ffe27a 50%, var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.day-chip .chip-count {
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .6;
+  font-weight: 700;
+}
+.day-chip.active .chip-count { color: var(--accent); opacity: 1; }
+
+/* ---- single-day card layout ---- */
 .cal-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
-}
-@media (max-width: 1080px) {
-  .cal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 720px) {
-  .cal-grid { grid-template-columns: 1fr; }
+  display: block;
+  max-width: 880px;
+  margin: 0 auto;
 }
 
 .day-card {
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 20px 16px 16px;
+  padding: 24px 22px 22px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  min-height: 280px;
-  transition: border-color .3s, transform .3s;
+  gap: 18px;
+  transition: border-color .3s;
 }
 .day-card:hover {
   border-color: rgba(212,175,55,.28);
-  transform: translateY(-2px);
 }
 
 .day-head {
@@ -1103,15 +1175,19 @@ footer {
 }
 
 .showings {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+@media (max-width: 480px) {
+  .showings { grid-template-columns: 1fr 1fr; gap: 8px; }
 }
 .showings .empty {
-  font-size: 12.5px;
+  grid-column: 1 / -1;
+  font-size: 13px;
   color: var(--muted);
   font-style: italic;
-  padding: 24px 6px;
+  padding: 32px 16px;
   text-align: center;
   border: 1px dashed var(--line);
   border-radius: 10px;

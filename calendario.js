@@ -240,11 +240,17 @@
 
   // ===================== Estado =====================
   let activeCinema = 'condado';
+  let activeDay = DAYS[0];
   let pendingPick = null; // { dateKey, time, format, hall, cinema }
+  let lastSubmitOK = false;
+
+  // Canción romántica de MJ que abre el botón "¡Nos vemos!" tras confirmar.
+  const ROMANTIC_SONG_URL = 'https://youtu.be/HzZ_urpj4As?list=RDHzZ_urpj4As&t=81';
 
   // ===================== Render =====================
   const grid = document.getElementById('cal-grid');
   const range = document.getElementById('cal-range');
+  const chipsContainer = document.getElementById('day-chips');
 
   function renderRange() {
     const a = dateFromKey(DAYS[0]);
@@ -252,62 +258,92 @@
     range.textContent = `${DAY_NAMES_SHORT[a.getDay()]} ${a.getDate()} — ${DAY_NAMES_SHORT[b.getDay()]} ${b.getDate()} · ${MONTH_NAMES[a.getMonth()]}`;
   }
 
-  function renderGrid() {
+  function showingsForDay(dateKey) {
     const cinema = CINEMAS[activeCinema];
-    grid.innerHTML = '';
+    return (cinema.days[dateKey] || []).filter((s) => isShowInFreeTime(dateKey, s.time));
+  }
 
+  function renderDayChips() {
+    if (!chipsContainer) return;
+    chipsContainer.innerHTML = '';
     DAYS.forEach((dateKey) => {
       const d = dateFromKey(dateKey);
       const dow = d.getDay();
-      const showings = (cinema.days[dateKey] || [])
-        .filter((s) => isShowInFreeTime(dateKey, s.time));
+      const n = showingsForDay(dateKey).length;
 
-      const card = document.createElement('article');
-      card.className = 'day-card';
-      card.setAttribute('role', 'listitem');
-
-      const head = document.createElement('header');
-      head.className = 'day-head';
-      head.innerHTML = `
-        <span class="day-dow">${DAY_NAMES_SHORT[dow]}</span>
-        <span class="day-num">${d.getDate()}</span>
-        <span class="day-month">${MONTH_NAMES[d.getMonth()].slice(0,3)}</span>
-        <span class="day-tag">${dow === 0 || dow === 6 ? 'todo el día' : (dow === 5 ? 'desde 4:30 pm' : 'desde 5:30 pm')}</span>
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'day-chip' + (dateKey === activeDay ? ' active' : '') + (n === 0 ? ' is-empty' : '');
+      chip.dataset.date = dateKey;
+      chip.setAttribute('role', 'tab');
+      chip.setAttribute('aria-selected', dateKey === activeDay ? 'true' : 'false');
+      chip.innerHTML = `
+        <span class="chip-dow">${DAY_NAMES_SHORT[dow]}.</span>
+        <span class="chip-num">${d.getDate()}</span>
+        <span class="chip-count">${n} ⭐</span>
       `;
-      card.appendChild(head);
-
-      const list = document.createElement('div');
-      list.className = 'showings';
-
-      if (showings.length === 0) {
-        const empty = document.createElement('p');
-        empty.className = 'empty';
-        empty.textContent = 'Sin funciones disponibles en tu horario libre.';
-        list.appendChild(empty);
-      } else {
-        showings.forEach((s) => {
-          const pill = document.createElement('button');
-          pill.className = 'show-pill';
-          pill.type = 'button';
-          pill.dataset.date = dateKey;
-          pill.dataset.time = s.time;
-          pill.dataset.format = s.format;
-          pill.dataset.hall = s.hall;
-          pill.innerHTML = `
-            <span class="star" aria-hidden="true">⭐</span>
-            <span class="show-time">${formatTimeAmPm(s.time)}</span>
-            <span class="show-meta">${s.format} · ${s.hall}</span>
-          `;
-          pill.addEventListener('click', () => openTicket({
-            dateKey, time: s.time, format: s.format, hall: s.hall, cinema: activeCinema,
-          }));
-          list.appendChild(pill);
-        });
-      }
-
-      card.appendChild(list);
-      grid.appendChild(card);
+      chip.addEventListener('click', () => {
+        activeDay = dateKey;
+        renderDayChips();
+        renderGrid();
+      });
+      chipsContainer.appendChild(chip);
     });
+  }
+
+  function renderGrid() {
+    grid.innerHTML = '';
+
+    const dateKey = activeDay;
+    const d = dateFromKey(dateKey);
+    const dow = d.getDay();
+    const showings = showingsForDay(dateKey);
+
+    const card = document.createElement('article');
+    card.className = 'day-card';
+    card.setAttribute('role', 'listitem');
+
+    const head = document.createElement('header');
+    head.className = 'day-head';
+    head.innerHTML = `
+      <span class="day-dow">${DAY_NAMES_SHORT[dow]}</span>
+      <span class="day-num">${d.getDate()}</span>
+      <span class="day-month">${MONTH_NAMES[d.getMonth()].slice(0,3)}</span>
+      <span class="day-tag">${dow === 0 || dow === 6 ? 'todo el día' : (dow === 5 ? 'desde 4:30 pm' : 'desde 5:30 pm')}</span>
+    `;
+    card.appendChild(head);
+
+    const list = document.createElement('div');
+    list.className = 'showings';
+
+    if (showings.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'empty';
+      empty.textContent = 'Sin funciones disponibles en tu horario libre este día.';
+      list.appendChild(empty);
+    } else {
+      showings.forEach((s) => {
+        const pill = document.createElement('button');
+        pill.className = 'show-pill';
+        pill.type = 'button';
+        pill.dataset.date = dateKey;
+        pill.dataset.time = s.time;
+        pill.dataset.format = s.format;
+        pill.dataset.hall = s.hall;
+        pill.innerHTML = `
+          <span class="star" aria-hidden="true">⭐</span>
+          <span class="show-time">${formatTimeAmPm(s.time)}</span>
+          <span class="show-meta">${s.format} · ${s.hall}</span>
+        `;
+        pill.addEventListener('click', () => openTicket({
+          dateKey, time: s.time, format: s.format, hall: s.hall, cinema: activeCinema,
+        }));
+        list.appendChild(pill);
+      });
+    }
+
+    card.appendChild(list);
+    grid.appendChild(card);
   }
 
   // ===================== Cinema tabs =====================
@@ -319,6 +355,7 @@
       const c = CINEMAS[activeCinema];
       const sub = document.getElementById('cinema-sub');
       if (sub) sub.textContent = c.location;
+      renderDayChips();
       renderGrid();
     });
   });
@@ -347,6 +384,7 @@
     ticketBody.classList.remove('state-sent', 'state-error', 'state-loading');
     btnConfirm.disabled = false;
     btnConfirm.querySelector('span').textContent = 'Sí, confírmaselo';
+    lastSubmitOK = false;
     showtime.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
@@ -366,6 +404,11 @@
 
   // ===================== Confirm → email a Estefano =====================
   btnConfirm.addEventListener('click', async () => {
+    // Si ya confirmó antes, el botón se convierte en "¡Nos vemos!" y abre la canción.
+    if (lastSubmitOK) {
+      window.open(ROMANTIC_SONG_URL, '_blank', 'noopener');
+      return;
+    }
     if (!pendingPick) return;
     btnConfirm.disabled = true;
     btnConfirm.querySelector('span').textContent = 'Enviando…';
@@ -400,7 +443,8 @@
       ticketBody.classList.add('state-sent');
       ticketTitle.textContent = '¡Listo! Le acabo de avisar 💌';
       btnConfirm.querySelector('span').textContent = '¡Nos vemos!';
-      btnConfirm.disabled = true;
+      btnConfirm.disabled = false;
+      lastSubmitOK = true;
       launchConfetti();
     } catch (err) {
       ticketBody.classList.remove('state-loading');
@@ -484,5 +528,6 @@
 
   // ===================== Init =====================
   renderRange();
+  renderDayChips();
   renderGrid();
 })();
