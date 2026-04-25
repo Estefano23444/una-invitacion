@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>¿Cuándo nos vemos? · Michael</title>
+  <meta name="description" content="Elige día y hora. Yo me encargo del resto." />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🎩</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,144,800;1,144,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-cal">
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 32 32" class="brand-mark" aria-hidden="true">
+        <path d="M4 26 V8 L16 22 L28 8 V26" stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
+      <span>michael</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">El plan</a>
+      <a href="https://www.youtube.com/watch?v=1-7ABIM2qjU&amp;t=255s">La peli</a>
+      <a href="#calendar">Agenda</a>
+    </nav>
+    <a class="cta-mini" href="index.html">← Volver</a>
+  </header>
+
+  <main id="top">
+    <section class="cal-hero">
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="bg-stars" aria-hidden="true"></div>
+      <div class="bg-glow" aria-hidden="true"></div>
+
+      <div class="cal-hero-content">
+        <div class="cal-mini-stage" aria-hidden="true">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <div class="rotor" id="rotor-mini">
+            <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" class="mj-svg">
+              <defs>
+                <radialGradient id="hatShine2" cx="50%" cy="30%" r="60%">
+                  <stop offset="0%" stop-color="#3a2a4f" />
+                  <stop offset="100%" stop-color="#0a0612" />
+                </radialGradient>
+                <linearGradient id="gloveShine2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="100%" stop-color="#d4cce8" />
+                </linearGradient>
+              </defs>
+              <g class="fedora">
+                <ellipse cx="150" cy="128" rx="110" ry="14" fill="#0a0612" opacity=".95"/>
+                <path d="M58 122 Q 58 56 150 56 Q 242 56 242 122 Z" fill="url(#hatShine2)"/>
+                <path d="M58 122 Q 58 56 150 56 Q 242 56 242 122" fill="none" stroke="#d4af37" stroke-width="1.6" opacity=".75"/>
+                <rect x="78" y="108" width="144" height="8" fill="#1a0f24"/>
+                <rect x="78" y="108" width="144" height="2" fill="#d4af37" opacity=".55"/>
+              </g>
+              <g class="glove">
+                <ellipse cx="150" cy="252" rx="48" ry="56" fill="url(#gloveShine2)"/>
+                <ellipse cx="115" cy="226" rx="11" ry="26" fill="#fff" transform="rotate(-22 115 226)"/>
+                <ellipse cx="138" cy="216" rx="10" ry="28" fill="#fff" transform="rotate(-8 138 216)"/>
+                <ellipse cx="162" cy="216" rx="10" ry="28" fill="#fff" transform="rotate(8 162 216)"/>
+                <ellipse cx="185" cy="226" rx="11" ry="26" fill="#fff" transform="rotate(22 185 226)"/>
+                <circle cx="132" cy="244" r="1.8" fill="#d4af37"/>
+                <circle cx="158" cy="252" r="1.6" fill="#d4af37"/>
+                <circle cx="170" cy="240" r="1.8" fill="#fff"/>
+                <circle cx="142" cy="266" r="1.6" fill="#d4af37"/>
+                <circle cx="174" cy="270" r="1.8" fill="#fff"/>
+                <circle cx="120" cy="260" r="1.4" fill="#d4af37"/>
+                <circle cx="156" cy="232" r="1.6" fill="#fff"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="cal-hero-text">
+          <p class="eyebrow">Setlist · esta semana</p>
+          <h1 class="cal-title">
+            <span class="line"><span>¿Cuándo</span></span>
+            <span class="line"><span><em>nos vemos</em>?</span></span>
+          </h1>
+          <p class="subtitle">
+            Aquí están las funciones de <strong>Michael</strong> en <strong>Multicines El Condado</strong> que caben en tu agenda. Las que tienen <span class="star-inline">⭐</span> son las funciones reales — toca una y le aviso a Estéfano.
+          </p>
+          <p class="cal-legend">
+            <span><span class="dot dot-show"></span> función disponible</span>
+            <span><span class="dot dot-work"></span> tu horario laboral · oculto</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cal-section" id="calendar">
+      <div class="cal-toolbar">
+        <div class="cal-toolbar-head">
+          <h2 class="cal-range" id="cal-range">Sáb 25 — Mié 29 · abril</h2>
+          <span class="cal-cinema" id="cinema-sub">Condado Shopping · Av. Mariscal Sucre y John F. Kennedy · Quito</span>
+        </div>
+        <div class="cinema-tabs" role="tablist" aria-label="Elegir cine">
+          <button class="cinema-tab active" type="button" data-cinema="condado" role="tab">
+            <span class="tab-name">El Condado</span>
+            <span class="tab-sub">Condado Shopping</span>
+          </button>
+          <button class="cinema-tab" type="button" data-cinema="cci" role="tab">
+            <span class="tab-name">CCI</span>
+            <span class="tab-sub">Iñaquito</span>
+          </button>
+        </div>
+      </div>
+      <div class="cal-grid" id="cal-grid" role="list"></div>
+      <p class="cal-foot">
+        ¿Ningún horario te encaja? <a href="#" id="poke">Cuéntame y vemos otro día.</a>
+      </p>
+    </section>
+  </main>
+
+  <div class="showtime hidden" id="showtime" role="dialog" aria-modal="true" aria-labelledby="ticket-title">
+    <canvas id="confetti"></canvas>
+    <div class="ticket" id="ticket">
+      <div class="ticket-top">
+        <span class="ticket-label">ADMIT</span>
+        <span class="ticket-count">02</span>
+      </div>
+      <div class="ticket-body" id="ticket-body">
+        <h3 id="ticket-title">¿Esta es la noche? ✨</h3>
+        <dl>
+          <dt>Película</dt><dd>Michael</dd>
+          <dt>Día</dt><dd id="t-date">—</dd>
+          <dt>Hora</dt><dd id="t-time">—</dd>
+          <dt>Cine</dt><dd>Multicines El Condado</dd>
+          <dt>Sala</dt><dd id="t-hall">—</dd>
+          <dt>Formato</dt><dd id="t-format">—</dd>
+          <dt>Asientos</dt><dd>Tú &amp; yo</dd>
+        </dl>
+        <div class="ticket-actions">
+          <button class="btn btn-yes" id="btn-confirm" type="button">
+            <span>Sí, confírmaselo</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M11 6l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="btn-link" id="btn-cancel" type="button">otro horario</button>
+        </div>
+        <p class="ticket-note">Le va a llegar un mail con el detalle. Yo me encargo de las entradas. 🍿</p>
+      </div>
+      <div class="ticket-foot">
+        <span id="ticket-foot-msg">Yo me encargo de las palomitas. 🍿</span>
+        <button class="btn-close" id="btn-close" aria-label="Cerrar">×</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Hecho con cariño y un poquito de moonwalk.</p>
+  </footer>
+
+  <script src="calendario.js"></script>
+</body>
+</html>
