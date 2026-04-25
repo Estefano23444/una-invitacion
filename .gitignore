@@ -1,0 +1,10 @@
+ffmpeg/
+ffmpeg.zip
+frames/
+frames-landing/
+screenshots/
+ejemplo.mp4
+video-landing.mp4
+*.log
+.DS_Store
+Thumbs.db

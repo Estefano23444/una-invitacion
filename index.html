@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Una invitación · Michael</title>
+  <meta name="description" content="Una invitación al cine que no se puede rechazar." />
+  <meta property="og:title" content="Una invitación · Michael" />
+  <meta property="og:description" content="Estrena Michael, el biopic del Rey del Pop. Solo falta una cosa: tú." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🎩</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,144,800;1,144,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 32 32" class="brand-mark" aria-hidden="true">
+        <path d="M4 26 V8 L16 22 L28 8 V26" stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
+      <span>michael</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#" data-action="reload">El plan</a>
+      <a href="https://www.youtube.com/watch?v=1-7ABIM2qjU&amp;t=255s" data-action="song">La peli</a>
+      <a href="#" data-action="reload">Confirmar</a>
+    </nav>
+    <a class="cta-mini" href="#" data-action="reload">RSVP</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="bg-stars" aria-hidden="true"></div>
+      <div class="bg-glow" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="eyebrow">Estreno · 2026</p>
+          <h1 class="title">
+            <span class="line"><span>Una</span></span>
+            <span class="line"><span><em>invitación</em></span></span>
+            <span class="line"><span>peligrosamente</span></span>
+            <span class="line"><span>buena.</span></span>
+          </h1>
+          <p class="subtitle">
+            Llega <strong>Michael</strong>, el biopic del Rey del Pop. Pantalla grande, palomitas y dos horas de moonwalks. Solo falta una cosa: <span class="hl">tú</span>.
+          </p>
+          <div class="cta-row" id="confirmar">
+            <button class="btn btn-yes" id="btn-yes" type="button">
+              <span>Sí, vamos</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M11 6l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="no-area">
+              <button class="btn btn-no" id="btn-no" type="button">No</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="stage">
+            <div class="beam"></div>
+            <div class="disc">
+              <div class="ring r1"></div>
+              <div class="ring r2"></div>
+              <div class="ring r3"></div>
+            </div>
+
+            <div class="hero-figure" id="hero-figure">
+              <div class="rotor" id="rotor">
+              <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" class="mj-svg" id="mj-fallback">
+                <defs>
+                  <radialGradient id="hatShine" cx="50%" cy="30%" r="60%">
+                    <stop offset="0%" stop-color="#3a2a4f" />
+                    <stop offset="100%" stop-color="#0a0612" />
+                  </radialGradient>
+                  <linearGradient id="gloveShine" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="100%" stop-color="#d4cce8" />
+                  </linearGradient>
+                </defs>
+                <g class="fedora">
+                  <ellipse cx="150" cy="128" rx="110" ry="14" fill="#0a0612" opacity=".95"/>
+                  <path d="M58 122 Q 58 56 150 56 Q 242 56 242 122 Z" fill="url(#hatShine)"/>
+                  <path d="M58 122 Q 58 56 150 56 Q 242 56 242 122" fill="none" stroke="#d4af37" stroke-width="1.6" opacity=".75"/>
+                  <rect x="78" y="108" width="144" height="8" fill="#1a0f24"/>
+                  <rect x="78" y="108" width="144" height="2" fill="#d4af37" opacity=".55"/>
+                </g>
+                <g class="glove">
+                  <ellipse cx="150" cy="252" rx="48" ry="56" fill="url(#gloveShine)"/>
+                  <ellipse cx="115" cy="226" rx="11" ry="26" fill="#fff" transform="rotate(-22 115 226)"/>
+                  <ellipse cx="138" cy="216" rx="10" ry="28" fill="#fff" transform="rotate(-8 138 216)"/>
+                  <ellipse cx="162" cy="216" rx="10" ry="28" fill="#fff" transform="rotate(8 162 216)"/>
+                  <ellipse cx="185" cy="226" rx="11" ry="26" fill="#fff" transform="rotate(22 185 226)"/>
+                  <circle cx="132" cy="244" r="1.8" fill="#d4af37"/>
+                  <circle cx="158" cy="252" r="1.6" fill="#d4af37"/>
+                  <circle cx="170" cy="240" r="1.8" fill="#fff"/>
+                  <circle cx="142" cy="266" r="1.6" fill="#d4af37"/>
+                  <circle cx="174" cy="270" r="1.8" fill="#fff"/>
+                  <circle cx="120" cy="260" r="1.4" fill="#d4af37"/>
+                  <circle cx="156" cy="232" r="1.6" fill="#fff"/>
+                </g>
+              </svg>
+              </div>
+              <div class="sparkles">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info">
+      <article class="info-card" id="pelicula">
+        <span class="kicker">La película</span>
+        <h2>Michael</h2>
+        <p>El biopic largamente esperado del Rey del Pop. Dirigido por Antoine Fuqua, protagonizado por Jaafar Jackson. Promete ser el evento de cine del año.</p>
+      </article>
+      <article class="info-card" id="plan">
+        <span class="kicker">El plan</span>
+        <h2>Tú, yo y el cine</h2>
+        <p>Función nocturna, buenos asientos y comida adentro. Sin agendas, sin presión — solo dos horas de la mejor música del mundo en pantalla grande.</p>
+      </article>
+    </section>
+  </main>
+
+  <div class="showtime hidden" id="showtime" role="dialog" aria-modal="true" aria-labelledby="ticket-title">
+    <canvas id="confetti"></canvas>
+    <div class="ticket">
+      <div class="ticket-top">
+        <span class="ticket-label">ADMIT</span>
+        <span class="ticket-count">02</span>
+      </div>
+      <div class="ticket-body">
+        <h3 id="ticket-title">Sabía que ibas a decir que sí ✨</h3>
+        <dl>
+          <dt>Película</dt><dd>Michael</dd>
+          <dt>Día</dt><dd id="t-date">Por confirmar</dd>
+          <dt>Cine</dt><dd id="t-cine">Por confirmar</dd>
+          <dt>Asientos</dt><dd>Tú &amp; yo</dd>
+        </dl>
+      </div>
+      <div class="ticket-foot">
+        <span>Yo me encargo de las palomitas. 🍿</span>
+        <button class="btn-close" id="btn-close" aria-label="Cerrar">×</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Hecho con cariño y un poquito de moonwalk.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
