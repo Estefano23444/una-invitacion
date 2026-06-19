@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Single-page Spanish-language invitation site ("Una invitación · Toy Story") — a personal RSVP page where **Estéfano invites Enmanuel** to see *Toy Story* at the cinema for their **anniversary**. Pure static site: no framework, no build, no package manager.
 
-There's a second page, [calendario.html](calendario.html) + [calendario.js](calendario.js): the "Sí" button leads here to pick a showtime. It lists the **real Toy Story showtimes** (one cinema — Multicines Plaza de las Américas — one day, Friday June 19, taken from a cartelera screenshot) and, on confirm, POSTs the pick to FormSubmit so Estéfano gets an email (with a `mailto:` fallback).
+There's a second page, [calendario.html](calendario.html) + [calendario.js](calendario.js): the "Sí" button leads here to pick a showtime. It lists the **real Toy Story showtimes** (one cinema — Multicines El Portal (Portal Shopping) — one day, Friday June 19, taken from a cartelera screenshot) and, on confirm, POSTs the pick to FormSubmit so Estéfano gets an email (with a `mailto:` fallback).
 
 ## Running locally
 

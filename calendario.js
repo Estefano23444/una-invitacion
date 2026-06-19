@@ -1,11 +1,11 @@
 (() => {
   // ===================== Funciones reales (Multicines · Toy Story) =====================
-  // Viernes 19 de junio 2026. Datos extraídos de la cartelera de Multicines Plaza de las Américas.
+  // Viernes 19 de junio 2026. Datos extraídos de la cartelera de Multicines El Portal (Portal Shopping).
   const CINEMAS = {
     plaza: {
       key: 'plaza',
-      name: 'Multicines Plaza de las Américas',
-      location: 'C.C. Plaza de las Américas · Av. de la República · Quito',
+      name: 'Multicines El Portal',
+      location: 'C.C. Portal Shopping · Av. Panamericana Norte · Quito',
       days: {
         '2026-06-19': [
           { time: '14:10', format: '2D Esp', hall: 'Sala Normal' },
