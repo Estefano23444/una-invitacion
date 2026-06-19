@@ -15,17 +15,18 @@
         e.preventDefault();
         location.reload();
       }
-      // 'thriller' → default link navigation to YouTube
+      // 'song' → default link navigation to YouTube
     });
   });
 
   // ------- "No" button that escapes -------
   const noTexts = [
     'No',
-    'Mmm... ¿segura?',
+    'Mmm... ¿seguro?',
     '¿En serio? 🥺',
     'Lo vas a pensar mejor',
     'No me hagas esto 😭',
+    'Hay un amigo en mí 🤠',
     'Última oportunidad ✨',
     'Okay, sí.'
   ];
@@ -120,7 +121,7 @@
     const ctx = canvas.getContext('2d');
     const W = canvas.width = window.innerWidth;
     const H = canvas.height = window.innerHeight;
-    const colors = ['#d4af37', '#b85eff', '#ffe27a', '#ff4d6d', '#ffffff', '#7ad7ff'];
+    const colors = ['#5fd14f', '#7b5cff', '#ffe27a', '#ff5a4d', '#ffffff', '#7ad7ff'];
     const N = 160;
     const pieces = Array.from({ length: N }, () => ({
       x: W / 2 + (Math.random() - .5) * 240,

@@ -1,208 +1,33 @@
 (() => {
-  // ===================== Funciones reales (Multicines · Michael) =====================
-  // Sáb 25 → Mié 29 abril 2026. Datos extraídos de la cartelera de Multicines.
+  // ===================== Funciones reales (Multicines · Toy Story) =====================
+  // Viernes 19 de junio 2026. Datos extraídos de la cartelera de Multicines Plaza de las Américas.
   const CINEMAS = {
-    condado: {
-      key: 'condado',
-      name: 'Multicines El Condado',
-      location: 'Condado Shopping · Av. Mariscal Sucre y John F. Kennedy · Quito',
+    plaza: {
+      key: 'plaza',
+      name: 'Multicines Plaza de las Américas',
+      location: 'C.C. Plaza de las Américas · Av. de la República · Quito',
       days: {
-        '2026-04-25': [
-          { time: '11:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '11:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '11:55', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:30', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '13:30', format: '2D Esp', hall: 'Sala Normal' },
+        '2026-06-19': [
           { time: '14:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:15', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '16:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:05', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '18:30', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '19:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '19:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '21:20', format: '4D Esp', hall: 'Sala 4D' },
-        ],
-        '2026-04-26': [
-          { time: '11:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '11:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '11:55', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:30', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '13:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:15', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '16:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:05', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '18:30', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '19:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '19:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '21:20', format: '4D Esp', hall: 'Sala 4D' },
-        ],
-        '2026-04-27': [
-          { time: '13:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:15', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '16:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:05', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '18:30', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '19:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '19:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '21:20', format: '4D Esp', hall: 'Sala 4D' },
-        ],
-        '2026-04-28': [
-          { time: '13:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:15', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '16:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:05', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '18:30', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '19:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '19:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '21:20', format: '4D Esp', hall: 'Sala 4D' },
-        ],
-        '2026-04-29': [
-          { time: '13:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:15', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '16:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:05', format: '2D Esp', hall: 'Pantalla Gigante MCX' },
-          { time: '19:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:25', format: '2D Esp', hall: 'Sala Normal' },
-        ],
-      },
-    },
-    cci: {
-      key: 'cci',
-      name: 'Multicines CCI',
-      location: 'C.C. Iñaquito · Av. Amazonas y Naciones Unidas · Quito',
-      days: {
-        '2026-04-25': [
-          { time: '10:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '11:05', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '11:45', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:55', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '13:55', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:50', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '16:50', format: '2D Esp', hall: 'Sala Normal' },
+          { time: '14:55', format: '2D Esp', hall: 'Sala Normal' },
+          { time: '15:20', format: '2D Esp', hall: 'Sala Normal' },
+          { time: '15:45', format: '3D Esp', hall: 'Sala Normal y DBOX' },
+          { time: '16:35', format: '2D Esp', hall: 'Sala Normal' },
           { time: '17:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:20', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '18:40', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '19:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '21:10', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '21:30', format: '2D Sub', hall: 'Sala Normal' },
-        ],
-        '2026-04-26': [
-          { time: '10:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '11:05', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '11:45', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:10', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '12:55', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '13:55', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:50', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '16:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:20', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '18:40', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '19:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '21:10', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '21:30', format: '2D Sub', hall: 'Sala Normal' },
-        ],
-        '2026-04-27': [
-          { time: '13:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:50', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '16:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:20', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '18:40', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '19:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '21:10', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '21:30', format: '2D Sub', hall: 'Sala Normal' },
-        ],
-        '2026-04-28': [
-          { time: '13:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:30', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:00', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:50', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '16:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:20', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:50', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '18:20', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '18:40', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '19:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:40', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '21:10', format: '4D Esp', hall: 'Sala 4D' },
-          { time: '21:30', format: '2D Sub', hall: 'Sala Normal' },
-        ],
-        '2026-04-29': [
-          { time: '13:15', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:05', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '14:35', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '15:05', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '16:05', format: '2D Sub', hall: 'Sala Normal' },
-          { time: '16:55', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:25', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '17:55', format: '2D Esp', hall: 'Sala Normal' },
+          { time: '17:45', format: '2D Esp', hall: 'Sala Normal' },
+          { time: '18:05', format: '3D Esp', hall: 'Sala Normal y DBOX' },
           { time: '18:55', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '19:45', format: '2D Esp', hall: 'Sala Normal' },
-          { time: '20:45', format: '2D Esp', hall: 'Sala Normal' },
+          { time: '19:40', format: '2D Esp', hall: 'Sala Normal' },
+          { time: '20:05', format: '2D Esp', hall: 'Sala Normal' },
+          { time: '20:30', format: '3D Sub', hall: 'Sala Normal y DBOX' },
+          { time: '21:20', format: '2D Sub', hall: 'Sala Normal' },
         ],
       },
     },
-  };
-
-  // ===================== Horario laboral · solo mostramos lo libre =====================
-  // Lun-Jue: 8:30 → 17:00 → libre desde 17:30 (30 min de buffer para llegar al cine)
-  // Vie:     8:00 → 16:00 → libre desde 16:30
-  // Sáb-Dom: libre todo el día.
-  const FREE_AFTER = {
-    1: '17:30', // Lunes
-    2: '17:30', // Martes
-    3: '17:30', // Miércoles
-    4: '17:30', // Jueves
-    5: '16:30', // Viernes
-    6: null,    // Sábado · todo libre
-    0: null,    // Domingo · todo libre
   };
 
   // ===================== Días que mostramos =====================
-  const DAYS = ['2026-04-25', '2026-04-26', '2026-04-27', '2026-04-28', '2026-04-29'];
+  const DAYS = ['2026-06-19'];
 
   const DAY_NAMES_LONG = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
   const DAY_NAMES_SHORT = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
@@ -212,18 +37,6 @@
   function dateFromKey(key) {
     const [y, m, d] = key.split('-').map(Number);
     return new Date(y, m - 1, d);
-  }
-
-  function timeToMinutes(t) {
-    const [h, m] = t.split(':').map(Number);
-    return h * 60 + m;
-  }
-
-  function isShowInFreeTime(dateKey, time) {
-    const dow = dateFromKey(dateKey).getDay();
-    const cutoff = FREE_AFTER[dow];
-    if (cutoff === null) return true;
-    return timeToMinutes(time) >= timeToMinutes(cutoff);
   }
 
   function formatLongDate(dateKey) {
@@ -239,13 +52,13 @@
   }
 
   // ===================== Estado =====================
-  let activeCinema = 'condado';
+  let activeCinema = 'plaza';
   let activeDay = DAYS[0];
   let pendingPick = null; // { dateKey, time, format, hall, cinema }
   let lastSubmitOK = false;
 
-  // Canción romántica de MJ que abre el botón "¡Nos vemos!" tras confirmar.
-  const ROMANTIC_SONG_URL = 'https://youtu.be/HzZ_urpj4As?list=RDHzZ_urpj4As&t=81';
+  // Canción de Toy Story que abre el botón "¡Nos vemos!" tras confirmar.
+  const ROMANTIC_SONG_URL = 'https://www.youtube.com/results?search_query=hay+un+amigo+en+mi+toy+story';
 
   // ===================== Render =====================
   const grid = document.getElementById('cal-grid');
@@ -254,13 +67,11 @@
 
   function renderRange() {
     const a = dateFromKey(DAYS[0]);
-    const b = dateFromKey(DAYS[DAYS.length - 1]);
-    range.textContent = `${DAY_NAMES_SHORT[a.getDay()]} ${a.getDate()} — ${DAY_NAMES_SHORT[b.getDay()]} ${b.getDate()} · ${MONTH_NAMES[a.getMonth()]}`;
+    range.textContent = `${DAY_NAMES_LONG[a.getDay()]} ${a.getDate()} · ${MONTH_NAMES[a.getMonth()]}`;
   }
 
   function showingsForDay(dateKey) {
-    const cinema = CINEMAS[activeCinema];
-    return (cinema.days[dateKey] || []).filter((s) => isShowInFreeTime(dateKey, s.time));
+    return CINEMAS[activeCinema].days[dateKey] || [];
   }
 
   function renderDayChips() {
@@ -309,7 +120,7 @@
       <span class="day-dow">${DAY_NAMES_SHORT[dow]}</span>
       <span class="day-num">${d.getDate()}</span>
       <span class="day-month">${MONTH_NAMES[d.getMonth()].slice(0,3)}</span>
-      <span class="day-tag">${dow === 0 || dow === 6 ? 'todo el día' : (dow === 5 ? 'desde 4:30 pm' : 'desde 5:30 pm')}</span>
+      <span class="day-tag">elige tu hora ✨</span>
     `;
     card.appendChild(head);
 
@@ -319,7 +130,7 @@
     if (showings.length === 0) {
       const empty = document.createElement('p');
       empty.className = 'empty';
-      empty.textContent = 'Sin funciones disponibles en tu horario libre este día.';
+      empty.textContent = 'Sin funciones disponibles este día.';
       list.appendChild(empty);
     } else {
       showings.forEach((s) => {
@@ -346,20 +157,6 @@
     grid.appendChild(card);
   }
 
-  // ===================== Cinema tabs =====================
-  document.querySelectorAll('.cinema-tab').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.cinema-tab').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeCinema = btn.dataset.cinema;
-      const c = CINEMAS[activeCinema];
-      const sub = document.getElementById('cinema-sub');
-      if (sub) sub.textContent = c.location;
-      renderDayChips();
-      renderGrid();
-    });
-  });
-
   // ===================== Ticket modal =====================
   const showtime = document.getElementById('showtime');
   const ticketBody = document.getElementById('ticket-body');
@@ -375,7 +172,7 @@
 
   function openTicket(pick) {
     pendingPick = pick;
-    ticketTitle.textContent = '¿Esta es la noche? ✨';
+    ticketTitle.textContent = '¿Esta es la cita? ✨';
     tDate.textContent = formatLongDate(pick.dateKey);
     tTime.textContent = formatTimeAmPm(pick.time);
     tHall.textContent = pick.hall;
@@ -402,7 +199,7 @@
     if (e.key === 'Escape' && !showtime.classList.contains('hidden')) closeTicket();
   });
 
-  // ===================== Confirm → email a Estefano =====================
+  // ===================== Confirm → email a Estéfano =====================
   btnConfirm.addEventListener('click', async () => {
     // Si ya confirmó antes, el botón se convierte en "¡Nos vemos!" y abre la canción.
     if (lastSubmitOK) {
@@ -416,13 +213,13 @@
 
     const pick = pendingPick;
     const cinema = CINEMAS[pick.cinema];
-    const subject = `🎩 ¡Sí quiere ir! · ${formatLongDate(pick.dateKey)} ${formatTimeAmPm(pick.time)}`;
+    const subject = `🚀 ¡Enmanuel dijo que sí! · ${formatLongDate(pick.dateKey)} ${formatTimeAmPm(pick.time)}`;
     const payload = {
       _subject: subject,
       _captcha: 'false',
       _template: 'table',
-      'Mensaje': '¡Sí quiero ir contigo a ver Michael! 🎬',
-      'Película': 'Michael',
+      'Mensaje': '¡Enmanuel quiere ir contigo a ver Toy Story! 🎬💚',
+      'Película': 'Toy Story',
       'Día': formatLongDate(pick.dateKey),
       'Hora': formatTimeAmPm(pick.time),
       'Cine': cinema.name,
@@ -432,7 +229,7 @@
     };
 
     try {
-      const res = await fetch('https://formsubmit.co/ajax/estefano.mateo.p@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/jakyingavelez@hotmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload),
@@ -454,16 +251,16 @@
       btnConfirm.querySelector('span').textContent = 'Reintentar';
       // fallback mailto
       const body = [
-        '¡Sí quiero ir contigo a ver Michael! 🎬',
+        '¡Enmanuel quiere ir contigo a ver Toy Story! 🎬💚',
         '',
-        `Película: Michael`,
+        `Película: Toy Story`,
         `Día: ${formatLongDate(pick.dateKey)}`,
         `Hora: ${formatTimeAmPm(pick.time)}`,
         `Cine: ${cinema.name}`,
         `Sala: ${pick.hall}`,
         `Formato: ${pick.format}`,
       ].join('\n');
-      const mailto = `mailto:estefano.mateo.p@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailto = `mailto:jakyingavelez@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       const link = document.createElement('a');
       link.href = mailto;
       link.textContent = 'Abrir en mi correo';
@@ -490,7 +287,7 @@
     const ctx = canvas.getContext('2d');
     const W = canvas.width = window.innerWidth;
     const H = canvas.height = window.innerHeight;
-    const colors = ['#d4af37', '#b85eff', '#ffe27a', '#ff4d6d', '#ffffff', '#7ad7ff'];
+    const colors = ['#5fd14f', '#7b5cff', '#ffe27a', '#ff5a4d', '#ffffff', '#7ad7ff'];
     const N = 160;
     const pieces = Array.from({ length: N }, () => ({
       x: W / 2 + (Math.random() - .5) * 240,
